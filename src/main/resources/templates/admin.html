@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>管理 - 协作式在线程序编程系统</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" />
+    <link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="webjars/font-awesome/5.0.6/on-server/css/fontawesome-all.css"/>
+    <link href="/css/admin.css" rel="stylesheet" />
+    <script type="text/javascript" src="webjars/jquery/jquery.min.js" ></script>
+</head>
+<body>
+
+<div class="table">
+    <table id="table_1" class="pure-table pure-table-bordered">
+        <thead>
+            <tr><th>团队编号</th><th>团队名称</th><th>在线人数</th><th>总人数</th><th style="width: 80px;">操作</th></tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>
+                <input readonly="readonly" type="text"/></td>
+            <td>
+                <input id="team_add_team_id" type="text"/></td>
+            <td></td>
+            <td></td>
+            <td style="width: 80px;margin-left: 5px">
+                <i onclick="add_team()" class="fas fa-plus"></i></td>
+        </tr>
+        <tr id="tr_1" class="page">
+            <td colspan="5" style="height: 38px">
+                <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+
+                    <li id="li_1" class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="table">
+    <table id="table_2" class="pure-table pure-table-bordered">
+        <thead>
+        <tr><th>项目编号</th><th>项目名称</th><th>当前用户</th><th style="width: 80px;">操作</th></tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td></td>
+            <td><input id="add_project_name" type="text"/></td>
+            <td></td>
+            <td style="width: 80px;margin-left: 5px"><i onclick="add_project(team_id)" class="fas fa-plus"></i></td>
+        </tr>
+
+        <tr id="tr_2" class="page">
+            <td colspan="4" style="height: 38px">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+
+                        <li id="li_2" class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="table">
+    <table id="table_3" class="pure-table pure-table-bordered">
+        <thead>
+        <tr>
+            <th>用户编号</th>
+            <th>姓名</th>
+            <th>团队名称</th>
+            <th>角色</th>
+            <th style="width: 80px;">操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>
+                <input id="user_add_username" type="text"/></td>
+            <td>
+                <input id="user_add_name" type="text"/></td>
+            <td id="add_userd"></td>
+            <td><select id="user_add_role">
+                <option value='User'>普通用户</option>
+                <option value='Administrator'>管理员</option>
+            </select></td>
+            <td style="width: 80px;margin-left: 5px">
+                <i onclick="add_user(team_id)" class="fas fa-plus"></i></td>
+        </tr>
+
+        <tr id="tr_3" class="page">
+            <td colspan="6" style="height: 38px">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+
+                        <li id="li_3" class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="table">
+    <table id="table_4" class="pure-table pure-table-bordered">
+        <thead>
+        <tr>
+            <th>代码编号</th>
+            <th>文件名</th>
+            <th>主文件</th>
+            <th>模式</th>
+            <th style="width: 80px;">操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>
+                <input readonly="readonly" id="new_code_id" type="text"/></td>
+            <td>
+                <input id="new_code_title" type="text"/></td>
+            <td>
+                <input readonly="readonly" id="new_code_executable" type="text"/></td>
+            <td>
+                <input readonly="readonly" id="new_code_mode" type="text"/></td>
+            <td style="width: 80px;margin-left: 5px">
+                <i onclick="add_code(project_id)" class="fas fa-plus"></i>
+            </td>
+        </tr>
+
+        <tr id="tr_4" class="page">
+            <td colspan="6" style="height: 38px">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+
+                        <li id="li_4" class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript" src="/js/admin.js">
+
+</script>
+</body>
+</html>

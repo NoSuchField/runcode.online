@@ -1,0 +1,154 @@
+<html>
+<head>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>协作式在线程序编程</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <link type="text/css" rel="stylesheet" href="css/codemirror.css"/>
+    <link type="text/css" rel="stylesheet" href="css/semantic.min.css"/>
+    <script type="text/javascript" src="js/codemirror/codemirror.js"></script>
+    <script type="text/javascript" src="js/codemirror/mode/loadmode.js"></script>
+    <script type="text/javascript" src="webjars/sockjs-client/sockjs.min.js"></script>
+    <script type="text/javascript" src="webjars/stomp-websocket/stomp.min.js"></script>
+    <script type="text/javascript" src="webjars/jquery/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="panel" style="padding: 20px;overflow: hidden">
+    <h1 class="ui header" style="width: 100%;text-align: center">协作式在线程序编程</h1>
+    <h4 class="ui horizontal divider header"><i class="bar chart icon"></i> 项目列表 </h4>
+    <div id="all_project">
+        <div class="ui relaxed divided list">
+            <div id="project_flag"></div>
+        </div>
+    </div>
+
+    <div id="current_project">
+        <h4 class="ui horizontal divider header"><i class="tag icon"></i> 项目明细 </h4>
+        <span onclick="takeCharge()" style="color: black;cursor: pointer"
+              id="maintain_status;background-color:#6666cc;border-radius:5px">接管项目/释放权限</span>
+        <table class="ui table">
+            <tbody>
+            <tr>
+                <td class="collapsing">
+                    <i class="list icon"></i> 项目编号
+                </td>
+                <td id="td_project_id">loading...</td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="info circle icon"></i> 项目名称
+                </td>
+                <td id="td_project_name">loading...</td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="users icon"></i> 团队名称
+                </td>
+                <td id="td_team_name">loading...</td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="user icon"></i> 当前用户
+                </td>
+                <td id="td_maintainer">loading...</td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="heartbeat icon"></i> 在线人数
+                </td>
+                <td id="td_online">loading...</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 class="ui horizontal divider header"><i class="bar chart icon"></i> 在线用户 </h4>
+    <div id="online_users" style="width: 365px;height:100px;overflow-y: scroll">
+
+
+        <div class="ui middle aligned selection list">
+            <div id="online_flag"></div>
+
+        </div>
+    </div>
+</div>
+<div id="editor">
+    <div id="bookmark">
+        <div type="button" id="tab_new" onclick="create_code()">
+            <i id="btn_new" class="plus circle icon"></i>
+        </div>
+        <div style="float: right;width: 30px;height: 30px;;line-height: 30px;font-size: 25px;color: dimgray;cursor: pointer;text-align: center"
+             type="button">
+            <i class="expand icon"></i>
+        </div>
+    </div>
+    <textarea id="codemirror"></textarea>
+    <div style="width: 100%;height: 42px;padding: 2px">
+        <div class="ui toggle checkbox" style="height: 42px;line-height: 42px">
+            <input onclick="parameter_switch();" id="parameter" type="checkbox" name="parameter"
+                   style="height: 42px;line-height: 42px;margin-top: 10px"/>
+            <label>参数</label>
+        </div>
+
+        <div id="input_parameter" class="ui input" style="display:none">
+            <input class="parameter" id="parameter_1" type="text" placeholder="parameter 1"/>
+            <input class="parameter" id="parameter_2" type="text" placeholder="parameter 2"/>
+            <input class="parameter" id="parameter_3" type="text" placeholder="parameter 3"/>
+            <input class="parameter" id="parameter_4" type="text" placeholder="parameter 4"/>
+            <input class="parameter" id="parameter_5" type="text" placeholder="parameter 5"/>
+        </div>
+        <button id="btn_run" onclick="run()" class="ui basic button" style="float: right"><i class="docker icon"></i>运行
+        </button>
+    </div>
+    <div id="console">
+        <div style="margin: auto auto;display: none;" id="load_mask">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <textarea class="console" readonly="readonly" id="console_text" style="outline: none"></textarea>
+    </div>
+
+</div>
+
+<div id="chatroom">
+
+    <div style="height: 300px;width: 360px">
+        <img id="avatar" style="margin-top: 25px" src="img/spring_logo.png"/>
+        <div style="height: 180px;width: 250px;margin: 0 auto">
+            <div style="padding-top: 140px;text-align: center;width: 100%;font-size: 25px" id="user_name">loading...
+            </div>
+        </div>
+
+        <div>
+            <div style="width:230px;margin: 0 auto;padding-top: 20px">
+                <div onclick="window.location.href='/admin'"
+                     style="background-color: #22436289;width: 110px;height: 40px;border-radius: 20px;float: left;cursor: pointer">
+                    <i style="font-size: 20px;line-height: 40px;width: 40px;color: #FFFFFF" class="database icon"></i>
+                    <sapn style="color: white;font-size: 20px;line-height: 40px">管理</sapn>
+                </div>
+                <div onclick="logout()"
+                     style="background-color: #22436289;width: 110px;height: 40px;border-radius: 20px;float: left;margin-left: 10px;cursor: pointer">
+                    <i style="font-size: 20px;line-height: 40px;width: 40px;color: #FFFFFF"
+                       class="sign out alternate icon"></i>
+                    <sapn style="color: white;font-size: 20px;line-height: 40px">退出</sapn>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="chatbox">
+        <div id="chatcontent" class="chat_content chat-block" tabindex="0">
+        </div>
+    </div>
+    <div id="chat_input">
+        <input style="outline: none" id="inputBox" type="text" name=""/>
+        <div id="btn_send" onclick="sendMessage()">发送</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/semantic.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
