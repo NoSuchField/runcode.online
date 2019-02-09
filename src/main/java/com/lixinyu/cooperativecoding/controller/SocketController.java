@@ -12,10 +12,11 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.File;
 import java.util.Properties;
-
+@CrossOrigin(origins = "https://www.lacecode.com")
 @Controller
 public class SocketController {
 
