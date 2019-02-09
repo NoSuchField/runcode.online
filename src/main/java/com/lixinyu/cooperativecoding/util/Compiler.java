@@ -27,7 +27,7 @@ public class Compiler {
 
         //Docker即时沙箱环境编译
         String container_name = name+System.currentTimeMillis();
-        //docker run --rm -v {path}:/runtime ubuntu:sandbox /bin/bash -c "chmod +x ./run.sh;./run.sh"
+        //docker run --rm -v {path}:/runtime debian:sandbox /bin/bash -c "chmod +x ./run.sh;./run.sh"
         String[] cmd={
                 "docker",
                 "run",
@@ -45,7 +45,7 @@ public class Compiler {
                 "1",
                 "-v",
                 path+":/runtime",
-                "ubuntu:sandbox",
+                "debian:sandbox",
                 "/bin/bash",
                 "-c",
                 "chmod +x ./run.sh;./run.sh"
