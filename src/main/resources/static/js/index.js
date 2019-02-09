@@ -4,9 +4,8 @@ var cursor = null;
 var username = null;
 var code_id = null;
 var is_maintainer = false;
-var maintainer;
 var project_id = null;
-var content = $("#chatcontent");
+
 var timestamp;
 var parameter = $("#parameter");
 var input_parameter = $("#input_parameter");
@@ -201,21 +200,18 @@ function resize() {
     $("body").height(height - 60);
     $("#panel").height(height - 40);
     $("#online_users").height(height - 593);
-    editor.setSize(width - 720, height - 242);
-
-    content.height(height - 360);
-    content.scrollTop(content[0].scrollHeight);
+    editor.setSize(width - 360, height - 242);
 }
 
 function heartbeat() {
-    if (connected) {
-        stompClient.send("/server/message", {}, JSON.stringify({
-            'project_id':project_id,
-            'channel': 2
-        }));
-
-        load_online_user();
-    }
+    // if (connected) {
+    //     stompClient.send("/server/message", {}, JSON.stringify({
+    //         'project_id':project_id,
+    //         'channel': 2
+    //     }));
+    //
+    //     load_online_user();
+    // }
 }
 
 $(document).ready(function() {
