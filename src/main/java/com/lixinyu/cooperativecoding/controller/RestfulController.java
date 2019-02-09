@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Set;
 
-@CrossOrigin(origins = "http://127.0.0.1")
+@CrossOrigin(origins = "https://www.lacecode.com")
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @PreAuthorize("hasAnyRole('User','Administrator')")
 @RestController
