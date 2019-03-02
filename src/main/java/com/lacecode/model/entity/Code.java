@@ -1,4 +1,4 @@
-package com.lixinyu.cooperativecoding.model.entity;
+package com.lacecode.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

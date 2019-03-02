@@ -1,7 +1,7 @@
-package com.lixinyu.cooperativecoding.config;
+package com.lacecode.config;
 
-import com.lixinyu.cooperativecoding.data.UserRepository;
-import com.lixinyu.cooperativecoding.service.CustomUserDetailsService;
+import com.lacecode.service.CustomUserDetailsService;
+import com.lacecode.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

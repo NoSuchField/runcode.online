@@ -1,4 +1,4 @@
-package com.lixinyu.cooperativecoding.model;
+package com.lacecode.model;
 
 public class Output {
     private String error;

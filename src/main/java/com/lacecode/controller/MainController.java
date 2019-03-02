@@ -1,4 +1,4 @@
-package com.lixinyu.cooperativecoding.controller;
+package com.lacecode.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

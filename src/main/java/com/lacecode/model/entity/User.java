@@ -1,10 +1,8 @@
-package com.lixinyu.cooperativecoding.model.entity;
+package com.lacecode.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties(value = {"project"})

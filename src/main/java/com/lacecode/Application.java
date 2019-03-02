@@ -1,4 +1,4 @@
-package com.lixinyu.cooperativecoding;
+package com.lacecode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

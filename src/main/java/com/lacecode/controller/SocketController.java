@@ -1,12 +1,12 @@
-package com.lixinyu.cooperativecoding.controller;
+package com.lacecode.controller;
 
-import com.lixinyu.cooperativecoding.data.CodeRepository;
-import com.lixinyu.cooperativecoding.data.UserRepository;
-import com.lixinyu.cooperativecoding.model.Message;
-import com.lixinyu.cooperativecoding.model.Output;
-import com.lixinyu.cooperativecoding.model.entity.Code;
-import com.lixinyu.cooperativecoding.model.entity.User;
-import com.lixinyu.cooperativecoding.util.Compiler;
+import com.lacecode.data.CodeRepository;
+import com.lacecode.data.UserRepository;
+import com.lacecode.model.Message;
+import com.lacecode.model.Output;
+import com.lacecode.model.entity.Code;
+import com.lacecode.model.entity.User;
+import com.lacecode.util.Compiler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;

@@ -1,4 +1,4 @@
-package com.lixinyu.cooperativecoding;
+package com.lacecode;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

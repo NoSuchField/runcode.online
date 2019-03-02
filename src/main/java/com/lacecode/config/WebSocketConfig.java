@@ -1,4 +1,4 @@
-package com.lixinyu.cooperativecoding.config;
+package com.lacecode.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

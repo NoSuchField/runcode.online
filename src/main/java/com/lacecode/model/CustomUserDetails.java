@@ -1,6 +1,6 @@
-package com.lixinyu.cooperativecoding.model;
+package com.lacecode.model;
 
-import com.lixinyu.cooperativecoding.model.entity.User;
+import com.lacecode.model.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

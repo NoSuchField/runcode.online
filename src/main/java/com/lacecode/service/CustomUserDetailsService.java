@@ -1,8 +1,8 @@
-package com.lixinyu.cooperativecoding.service;
+package com.lacecode.service;
 
-import com.lixinyu.cooperativecoding.data.UserRepository;
-import com.lixinyu.cooperativecoding.model.CustomUserDetails;
-import com.lixinyu.cooperativecoding.model.entity.User;
+import com.lacecode.data.UserRepository;
+import com.lacecode.model.CustomUserDetails;
+import com.lacecode.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

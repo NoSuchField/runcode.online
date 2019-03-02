@@ -1,13 +1,13 @@
-package com.lixinyu.cooperativecoding.controller;
+package com.lacecode.controller;
 
-import com.lixinyu.cooperativecoding.data.CodeRepository;
-import com.lixinyu.cooperativecoding.data.ProjectRepository;
-import com.lixinyu.cooperativecoding.data.TeamRepository;
-import com.lixinyu.cooperativecoding.data.UserRepository;
-import com.lixinyu.cooperativecoding.model.entity.Code;
-import com.lixinyu.cooperativecoding.model.entity.Project;
-import com.lixinyu.cooperativecoding.model.entity.Team;
-import com.lixinyu.cooperativecoding.model.entity.User;
+import com.lacecode.data.CodeRepository;
+import com.lacecode.data.ProjectRepository;
+import com.lacecode.data.TeamRepository;
+import com.lacecode.data.UserRepository;
+import com.lacecode.model.entity.Code;
+import com.lacecode.model.entity.Project;
+import com.lacecode.model.entity.Team;
+import com.lacecode.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

@@ -1,6 +1,6 @@
-package com.lixinyu.cooperativecoding.data;
+package com.lacecode.data;
 
-import com.lixinyu.cooperativecoding.model.entity.Team;
+import com.lacecode.model.entity.Team;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TeamRepository extends CrudRepository<Team,Integer>{
